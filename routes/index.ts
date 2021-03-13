@@ -1,0 +1,15 @@
+import express from 'express';
+import { validateRequest } from '../middlewares/validate-request';
+import { signIn, signUp, checkout } from '../controllers/user-controller';
+
+const router = express.Router();
+
+router.post('/signin', signIn);
+
+router.post('/signup', signUp);
+
+router.post('/checkout', validateRequest, checkout);
+
+
+
+export { router };
