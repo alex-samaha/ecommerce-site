@@ -19,4 +19,11 @@ const signUpUser = async () => {
     return sessionId; 
 };
 
-const session = signUpUser();
+const addItemsToDB = async () => {
+    const items = JSON.parse(fs.readFileSync('sample-inventory.json', 'utf-8'));
+    console.log("Items: ", items);
+    await axios.post(`${BASE_URL}/add-items`, { ...items });
+}
+
+//const session = signUpUser();
+//addItemsToDB();
