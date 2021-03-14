@@ -3,31 +3,31 @@
         {
             "name": "milk",
             "price": 3,
-            "quantity": 5,
+            "quantity": 50,
             "id": "1" 
         },
         {
             "name": "bread",
             "price": 2,
-            "quantity": 10,
+            "quantity": 50,
             "id": "2" 
         },
         {
             "name": "eggs",
             "price": 5,
-            "quantity": 2,
+            "quantity": 100,
             "id": "3" 
         },
         {
             "name": "orange juice",
             "price": 4,
-            "quantity": 4,
+            "quantity": 100,
             "id": "4" 
         },
         {
             "name": "cereal",
             "price": 1,
-            "quantity": 15,
+            "quantity": 50,
             "id": "5" 
         }
     ]
