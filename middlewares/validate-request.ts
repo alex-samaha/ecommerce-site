@@ -1,12 +1,13 @@
 import { Request, Response, NextFunction } from 'express';
-import { User } from '../models/User';
+import { User, UserSession } from '../models/User';
 
 // Update the Express Request object to add the sessionId for easy access
 // After validating it through the middleware
 declare global {
     namespace Express {
         interface Request {
-            sessionId?: string
+            sessionId: string;
+            user: UserSession;
         }
     }
 }
@@ -36,6 +37,6 @@ export const validateRequest = async (
         return res.status(400).json({ error: 'Invalid session token' });
     }
 
-    req.sessionId = sessionId;
+    req.user = user;
     next();
 }

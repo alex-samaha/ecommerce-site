@@ -7,6 +7,12 @@ interface UserAttrs {
     cart?: Item[]
 }
 
+export interface UserSession {
+    email: string;
+    cart: Item[];
+    sessionId: string;
+}
+
 // An interface that describes the properties that a User Model has
 interface UserModel extends mongoose.Model<UserDoc> {
     // function that takes in a UserAttrs type object and returns UserDoc
