@@ -2,6 +2,7 @@ import express from 'express';
 import { validateRequest } from '../middlewares/validate-request';
 import { signIn, signUp } from '../controllers/user-controller';
 import { addItemsToDB, addItemToCart, removeItemFromCart } from '../controllers/inventory-controller';
+import { checkout, getPastTransactions } from '../controllers/transaction-controller';
 
 const router = express.Router();
 
@@ -15,7 +16,9 @@ router.post('/item/:id/add', validateRequest, addItemToCart);
 
 router.post('/item/:id/remove', validateRequest, removeItemFromCart);
 
-//router.post('/checkout', validateRequest, checkout);
+router.get('/transactions', validateRequest, getPastTransactions);
+
+router.post('/checkout', validateRequest, checkout);
 
 
 export { router };

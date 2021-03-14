@@ -1,15 +1,15 @@
 import mongoose from 'mongoose';
-import { ItemAttrs as Item} from './Item';
+import { ItemAttrs as ItemType} from './Item';
 
 // An interface for describing properties required to create a new user
 interface UserAttrs {
     email: string;
-    cart?: Item[]
+    cart?: ItemType[]
 }
 
 export interface UserSession {
     email: string;
-    cart: Item[];
+    cart: ItemType[];
     sessionId: string;
 }
 
@@ -23,7 +23,7 @@ interface UserModel extends mongoose.Model<UserDoc> {
 interface UserDoc extends mongoose.Document {
     email: string;
     sessionId: string;
-    cart: Item[];
+    cart: ItemType[];
 }
 
 // Schema sets up the properties for a user
@@ -36,7 +36,10 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: false
     },
-    cart: []
+    cart: {
+        type: Array,
+        required: false
+    }
 });
 
 // Adds the custom function to the user model

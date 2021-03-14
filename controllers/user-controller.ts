@@ -1,6 +1,8 @@
 import { Request, Response } from 'express';
 import { v4 } from 'uuid';
 import { User } from '../models/User';
+import { UserAction } from '../models/Constants';
+import { saveUserEvent } from '../utils/event-utils';
 
 /**
  * Route to sign a user up - requires an email to register
@@ -23,6 +25,14 @@ import { User } from '../models/User';
     const sessionId = v4();
     const user = User.build({ email: req.body.email })
     await user.save();
+
+    // Save the event
+    await saveUserEvent({
+        email: req.body.email,
+        eventType: UserAction.SIGN_UP,
+        eventDescription: 'User signed up',
+        dateTime: new Date()
+    });
 
     return res.status(200).json({ sessionId });
 }
@@ -48,6 +58,14 @@ export const signIn = async (req: Request, res: Response) => {
     const sessionId = v4();
     user.sessionId = sessionId;
     await user.save();
+
+    // Save the event
+    await saveUserEvent({
+        email: req.body.email,
+        eventType: UserAction.SIGN_IN,
+        eventDescription: 'User entered store',
+        dateTime: new Date()
+    });
 
     return res.status(200).json({ sessionId });
 }

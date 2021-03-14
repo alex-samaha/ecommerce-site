@@ -1,6 +1,8 @@
 import { Request, Response } from 'express';
 import { Item, ItemAttrs as ItemType } from '../models/Item';
 import { updateCart } from '../utils/cart-utils';
+import { UserAction } from '../models/Constants';
+import { saveUserEvent } from '../utils/event-utils';
 
 
 /**
@@ -58,6 +60,14 @@ export const addItemToCart = async (req: Request, res: Response) => {
     // Update the user's cart
     const updatedCart = await updateCart(req.user.sessionId, req.user.cart);
 
+    // Save the event
+    await saveUserEvent({
+        email: req.user.email,
+        eventType: UserAction.ADD_ITEM,
+        eventDescription: `User added ${item.name} to their cart`,
+        dateTime: new Date()
+    });
+
     return res.status(200).json({ cart: updatedCart });
 }
 
@@ -76,6 +86,7 @@ export const removeItemFromCart = async (req: Request, res: Response) => {
         return res.status(400).json({ error: "Item not in cart" });
     }
 
+    const itemName = req.user.cart[itemIndex].name;
     // If the quantity of the item is 1, remove the object from the list
     if(req.user.cart[itemIndex].quantity === 1) {
         req.user.cart.splice(itemIndex, 1);
@@ -86,6 +97,14 @@ export const removeItemFromCart = async (req: Request, res: Response) => {
 
     // Update the user's cart
     const updatedCart = await updateCart(req.user.sessionId, req.user.cart);
+
+    // Save the event
+    await saveUserEvent({
+        email: req.user.email,
+        eventType: UserAction.REMOVE_ITEM,
+        eventDescription: `User removed ${itemName} to their cart`,
+        dateTime: new Date()
+    });
 
     return res.status(200).json({ cart: updatedCart });
 
