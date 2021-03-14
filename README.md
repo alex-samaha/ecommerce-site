@@ -26,6 +26,11 @@
 * Make sure to use the "Add Items to DB endpoint" (/add-items) to add inventory so that you can test the shopping flow if needed
 * You can also clear the DB using the "Clear Database" endpoint (/drop-collections) for testing as well
 
+## Notes
+* When running the shopping script make sure that the database is already clear, or at least make sure that the default test user isn't already created
+* Signup is only for account creation and does not issue a session token (to try and keep that logic to signin which is for when a user enters the store)
+* If hitting the API from postman or some REST client like that, feel free to use the "Clear Database" after you go through the shopping flow
+
 
 # Routes
 | Method | Route            | Required Fields                                                | Response                                      | Description                                                              |
