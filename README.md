@@ -13,7 +13,7 @@
 * Clone this repo from the command line - `git clone https://github.com/alex-samaha/ecommerce-site.git`
 * Install MongoDB locally - https://www.mongodb.com/try/download/community - This app was developed using version 4.4.4
 * Download the .msi file and go through with the installation
-* Add the data db folder to your desktop from the root of your C Drive - `mkdir data ... cd data ... mkdir db` or simply add the folders manually from the file explorer
+* Add the data db folder to your computer at the root of your C Drive - `mkdir data ... cd data ... mkdir db` or simply add the folders manually from the file explorer
 * Change into the bin directory of mongodb - `cd "C:\Program Files\MongoDB\Server\4.4\bin"` or alternatively go to that directrory in the file explorer
 * Run the mongod.exe executable `./mongod.exe` (`start mongod.exe` if using cmd) or double click the .exe file
 * If ts-node isn't installed, install it globally - `npm install -g ts-node`
