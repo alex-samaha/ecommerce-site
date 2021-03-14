@@ -9,6 +9,8 @@
 * Start the application - `npm start`
 * Run the shopping script from the root directory to simulate the shopping flow - `ts-node shop.ts`
 * Test any routes as needed, and refer to the postman collection if necessary - Storelift E-Commerce Site.postman_collection.json
+* Make sure to use the "Add Items to DB endpoint" (/add-items) to add inventory so that you can test the shopping flow if needed
+* You can also clear the DB using the "Clear Database" endpoint (/drop-collections) for testing as well
 ## Windows
 * Clone this repo from the command line - `git clone https://github.com/alex-samaha/ecommerce-site.git`
 * Install MongoDB locally - https://www.mongodb.com/try/download/community - This app was developed using version 4.4.4
@@ -21,6 +23,8 @@
 * Start the application - `npm start`
 * Run the shopping script from the root directory to simulate the shopping flow - `ts-node shop.ts`
 * Test any routes as needed, and refer to the postman collection if necessary - Storelift E-Commerce Site.postman_collection.json
+* Make sure to use the "Add Items to DB endpoint" (/add-items) to add inventory so that you can test the shopping flow if needed
+* You can also clear the DB using the "Clear Database" endpoint (/drop-collections) for testing as well
 
 
 # Routes

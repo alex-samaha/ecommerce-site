@@ -6,7 +6,7 @@
 	},
 	"item": [
 		{
-			"name": "http://localhost:8080/signin",
+			"name": "Signin User",
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -42,7 +42,7 @@
 			"response": []
 		},
 		{
-			"name": "http://localhost:8080/signup",
+			"name": "Signup User",
 			"request": {
 				"method": "POST",
 				"header": [],
@@ -70,7 +70,7 @@
 			"response": []
 		},
 		{
-			"name": "http://localhost:8080/checkout",
+			"name": "User Checkout",
 			"request": {
 				"method": "POST",
 				"header": [
@@ -95,7 +95,7 @@
 			"response": []
 		},
 		{
-			"name": "http://localhost:8080/item/14/add",
+			"name": "Add Item to Cart",
 			"request": {
 				"method": "POST",
 				"header": [
@@ -122,7 +122,7 @@
 			"response": []
 		},
 		{
-			"name": "http://localhost:8080/item/4/remove",
+			"name": "Remove Item from Cart",
 			"request": {
 				"method": "POST",
 				"header": [
@@ -149,13 +149,13 @@
 			"response": []
 		},
 		{
-			"name": "http://localhost:8080/checkout",
+			"name": "Customer Checkout",
 			"request": {
 				"method": "POST",
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "",
+						"value": "85506e53-4073-4476-861f-90859b9c664e",
 						"type": "text"
 					}
 				],
@@ -174,7 +174,7 @@
 			"response": []
 		},
 		{
-			"name": "http://localhost:8080/transactions",
+			"name": "Get Past Customer Transactions",
 			"request": {
 				"method": "GET",
 				"header": [
@@ -193,6 +193,53 @@
 					"port": "8080",
 					"path": [
 						"transactions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Items to the DB",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"items\": [\r\n        {\r\n            \"name\": \"milk\",\r\n            \"price\": 3,\r\n            \"quantity\": 50,\r\n            \"id\": \"1\" \r\n        },\r\n        {\r\n            \"name\": \"bread\",\r\n            \"price\": 2,\r\n            \"quantity\": 50,\r\n            \"id\": \"2\" \r\n        },\r\n        {\r\n            \"name\": \"eggs\",\r\n            \"price\": 5,\r\n            \"quantity\": 100,\r\n            \"id\": \"3\" \r\n        },\r\n        {\r\n            \"name\": \"orange juice\",\r\n            \"price\": 4,\r\n            \"quantity\": 100,\r\n            \"id\": \"4\" \r\n        },\r\n        {\r\n            \"name\": \"cereal\",\r\n            \"price\": 1,\r\n            \"quantity\": 50,\r\n            \"id\": \"5\" \r\n        }\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/add-items",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"add-items"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Clear Database",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/drop-collections",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"drop-collections"
 					]
 				}
 			},
