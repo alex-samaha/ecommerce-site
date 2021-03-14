@@ -16,7 +16,8 @@ const start = async () => {
         // Connect to MongoDB
         await mongoose.connect('mongodb://127.0.0.1:27017/storelift', {
             useNewUrlParser: true,
-            useCreateIndex: true
+            useCreateIndex: true,
+            useUnifiedTopology: true
         });
         console.log('Connected to MongoDB');
     }
