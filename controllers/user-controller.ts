@@ -22,8 +22,7 @@ import { saveUserEvent } from '../utils/event-utils';
     }
     
     // Save the user to the DB
-    const sessionId = v4();
-    const user = User.build({ email: req.body.email })
+    const user = User.build({ email: req.body.email });
     await user.save();
 
     // Save the event
@@ -34,7 +33,7 @@ import { saveUserEvent } from '../utils/event-utils';
         dateTime: new Date()
     });
 
-    return res.status(200).json({ sessionId });
+    return res.status(200).json({ message: 'Successfully signed up user' });
 }
 
 /**
