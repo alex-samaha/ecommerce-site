@@ -35,8 +35,6 @@ export const addItemToCart = async (req: Request, res: Response) => {
     const item = await Item.findOne({ id: req.params.id});
 
     if(!item) {
-        console.log("====Invalid Item ID====");
-        console.log("Item ID: ", req.params.id);
         return res.status(400).json({ error: 'Invalid item ID'});
     }
 
