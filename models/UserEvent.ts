@@ -1,7 +1,6 @@
 import mongoose from 'mongoose';
 import { UserAction } from './Constants';
 
-// An interface for describing properties required to create a new UserEvent
 export interface UserEventAttrs {
     email: string;
     eventType: UserAction;
@@ -9,13 +8,10 @@ export interface UserEventAttrs {
     dateTime: Date;
 }
 
-// An interface that describes the properties that a UserEvent Model has
 interface UserEventModel extends mongoose.Model<UserEventDoc> {
-    // function that takes in a UserEventAttrs type object and returns a UserEventDoc
     build(attrs: UserEventAttrs): UserEventDoc;
 }
 
-// An interface that describes the properties a UserEvent Document has
 interface UserEventDoc extends mongoose.Document {
     email: string;
     eventType: UserAction;

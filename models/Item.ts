@@ -1,6 +1,5 @@
 import mongoose from 'mongoose';
 
-// An interface for describing properties required to create a new item
 export interface ItemAttrs {
     name: string;
     price: number;
@@ -8,13 +7,10 @@ export interface ItemAttrs {
     id: string;
 }
 
-// An interface that describes the properties that an Item Model has
 interface ItemModel extends mongoose.Model<ItemDoc> {
-    // function that takes in a ItemAttrs type object and returns an ItemDoc
     build(attrs: ItemAttrs): ItemDoc;
 }
 
-// An interface that describes the properties an Item Document has
 interface ItemDoc extends mongoose.Document {
     name: string;
     price: number;

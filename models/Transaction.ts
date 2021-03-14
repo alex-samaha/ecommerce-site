@@ -1,7 +1,6 @@
 import mongoose from 'mongoose';
 import { ItemAttrs as ItemType } from './Item';
 
-// An interface for describing properties required to create a new Transaction
 export interface TransactionAttrs {
     email: string;
     cart: ItemType[];
@@ -9,13 +8,10 @@ export interface TransactionAttrs {
     dateTime: Date;
 }
 
-// An interface that describes the properties that a Transaction Model has
 interface TransactionModel extends mongoose.Model<TransactionDoc> {
-    // function that takes in a TransactionAttrs type object and returns a TransactionDoc
     build(attrs: TransactionAttrs): TransactionDoc;
 }
 
-// An interface that describes the properties a Transaction Document has
 interface TransactionDoc extends mongoose.Document {
     email: string;
     cart: ItemType[];

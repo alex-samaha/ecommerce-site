@@ -13,13 +13,10 @@ export interface UserSession {
     sessionId: string;
 }
 
-// An interface that describes the properties that a User Model has
 interface UserModel extends mongoose.Model<UserDoc> {
-    // function that takes in a UserAttrs type object and returns UserDoc
     build(attrs: UserAttrs): UserDoc;
 }
 
-// An interface that describes the properties a User Document has
 interface UserDoc extends mongoose.Document {
     email: string;
     sessionId: string;
