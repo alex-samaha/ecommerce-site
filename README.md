@@ -3,7 +3,8 @@
 * Clone this repo from the command line - `git clone https://github.com/alex-samaha/ecommerce-site.git`
 * Install MongoDB locally - https://www.mongodb.com/try/download/community (or install via brew - `brew install mongodb-community@4.4`) - This app was developed using version 4.4.4
 * If not using brew, run it locally with this command - `mongod --config /usr/local/etc/mongod.conf --fork`
-* If using brew, run this command - `brew services start mongodb-community@4.4`
+* If using brew, run these commands - `brew tap mongodb/brew` and then `brew services start mongodb-community@4.4`
+* If ts-node isn't installed, install it globally - `npm install -g ts-node`
 * Once MongoDB is installed and running, install the node_modules from the root directory of the project - `npm install`
 * Start the application - `npm start`
 * Run the shopping script from the root directory to simulate the shopping flow - `ts-node shop.ts`
@@ -15,6 +16,7 @@
 * Add the data db folder to your desktop from the root of your C Drive - `mkdir data ... cd data ... mkdir db` or simply add the folders manually from the file explorer
 * Change into the bin directory of mongodb - `cd "C:\Program Files\MongoDB\Server\4.4\bin"` or alternatively go to that directrory in the file explorer
 * Run the mongod.exe executable `./mongod.exe` (`start mongod.exe` if using cmd) or double click the .exe file
+* If ts-node isn't installed, install it globally - `npm install -g ts-node`
 * Once MongoDB is installed and running, install the node_modules from the root directory of the project - `npm install`
 * Start the application - `npm start`
 * Run the shopping script from the root directory to simulate the shopping flow - `ts-node shop.ts`
