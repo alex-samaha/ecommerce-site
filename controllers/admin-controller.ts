@@ -21,7 +21,6 @@ export const dropAllCollections = async (req: Request, res: Response) => {
         await UserEvent.collection.drop();
     }
     catch(err) {
-        console.log("Error dropping collections: ", err);
         return res.status(500).json({
             error: "Error dropping collections, try going through the user signin --> checkout"
                     + " process and try again after"

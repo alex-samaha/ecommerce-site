@@ -38,7 +38,7 @@ export const getPastTransactions = async (req: Request, res: Response) => {
  * Route to simulate a user leaving the store to 'sign them out' or 'check out'
  * @param req - Express request object
  * @param res - Express response object
- * @returns {object} - JSON object if the request was successful
+ * @returns {TransactionType} - The JSON for the user's Transaction
  */
  export const checkout = async (req: Request, res: Response) => {
 

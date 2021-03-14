@@ -8,7 +8,7 @@ import { saveUserEvent } from '../utils/event-utils';
  * Route to sign a user up - requires an email to register
  * @param req - Express request object
  * @param res - Express response object
- * @returns {object} - JSON object containing the users session ID to be used while shopping
+ * @returns {object} - If the user signup was successful 
  */
  export const signUp = async (req: Request, res: Response) => {
     if(!req.body.email) {

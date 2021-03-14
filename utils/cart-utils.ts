@@ -7,9 +7,9 @@ import { User } from '../models/User';
  * and then return the up to date cart back to the user
  * @param sessionId - The user's sessionId
  * @param cart - The user's cart
- * @returns {Item[]} - The user's updated cart
+ * @returns {Promise<ItemType[]>} - The user's updated cart
  */
-export const updateCart = async (sessionId: string, cart: ItemType[]) => {
+export const updateCart = async (sessionId: string, cart: ItemType[]): Promise<ItemType[]> => {
     // Update the user's cart
     await User.updateOne(
         { "sessionId": sessionId },
